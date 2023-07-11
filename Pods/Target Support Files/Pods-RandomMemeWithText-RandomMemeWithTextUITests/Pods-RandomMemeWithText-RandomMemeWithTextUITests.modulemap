@@ -1,0 +1,6 @@
+framework module Pods_RandomMemeWithText_RandomMemeWithTextUITests {
+  umbrella header "Pods-RandomMemeWithText-RandomMemeWithTextUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
