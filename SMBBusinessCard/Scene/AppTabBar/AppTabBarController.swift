@@ -29,8 +29,10 @@ final class AppTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        UITabBar.appearance().barTintColor = .systemBackground
+        view.backgroundColor = .white
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().backgroundColor = .white
+        tabBar.isTranslucent = false
         self.hidesBottomBarWhenPushed = true
         tabBar.tintColor = .label
         viewControllers = viewModel.navigationControllers

@@ -8,66 +8,27 @@
 import UIKit
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
-    @IBOutlet weak var tableView: UITableView!
-    var dataSource: UITableViewDiffableDataSource<HomeSection, HomeItemType>? = nil
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
+    @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var telLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
-        setUpTableView()
-        bindOutputs()
-        viewModel.input.viewDidLoad?()
+        self.title = "SMB ID CARD"
+        self.logoImageView.setViewShadow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.input.viewWillAppear?()
     }
-    
-    private func setUpUI() {
-        self.title = "All HTTP Status"
-    }
-    
-    private func setUpTableView() {
-        tableView.registerNib(type: HomeTableViewCell.self)
-        tableView.registerNibHeaderFooter(type: HomeTitleUITableViewHeaderFooterView.self)
-        tableView.delegate = self
-        dataSource = UITableViewDiffableDataSource<HomeSection, HomeItemType>(tableView: tableView, cellProvider: { tableView, indexPath, itemIdentifier in
-            if let cell: HomeTableViewCell = tableView.dequeueReusableCell() {
-                cell.setUp(item: itemIdentifier)
-               return cell
-            }
-            return UITableViewCell()
-        })
-    }
-    
-    private func bindOutputs() {
-        self.viewModel.output.setUpItems = { [weak self] sections in
-            guard let self else { return }
-            var snapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeItemType>()
-            snapshot.appendSections(sections)
-            sections.forEach { section in
-                snapshot.appendItems(section.items, toSection: section)
-            }
-            self.dataSource?.apply(snapshot)
-        }
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = HomeTitleUITableViewHeaderFooterView(reuseIdentifier: "HomeTitleUITableViewHeaderFooterView")
-        let title = viewModel.output.getHeaderTitle(section: section) ?? ""
-        headerView.setUp(title: title)
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.input.selectItem(indexPath: indexPath)
+    @IBAction func didSelect(_ sender: Any) {
+        var aaa = [Int] = []
+        var bbb: [Int: Int] = [:]
+        bbb.removeValue(forKey: <#T##Int#>)
     }
 }

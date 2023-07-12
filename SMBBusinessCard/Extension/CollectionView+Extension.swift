@@ -20,7 +20,7 @@ extension UITableView {
         self.register(nib, forHeaderFooterViewReuseIdentifier: nibName)
     }
     
-    open func dequeueReusableCell<T: UITableViewCell>() -> T? {
+    public func dequeueReusableCell<T: UITableViewCell>() -> T? {
         let cellName = String(describing: T.self)
         return dequeueReusableCell(withIdentifier: cellName) as? T
     }
