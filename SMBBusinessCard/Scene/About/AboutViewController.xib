@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="MVVM_Clean" customModuleProvider="target">
+            <connections>
+                <outlet property="contactLabel" destination="XhZ-c4-bML" id="bBk-GM-Jac"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TO4-yF-fRx">
+                    <rect key="frame" x="0.0" y="209.66666666666666" width="393" height="432.66666666666674"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-SS-IhD">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="176.66666666666666"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-g5-xnq">
+                                    <rect key="frame" x="108" y="0.0" width="177" height="176.66666666666666"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="4X9-g5-xnq" secondAttribute="height" multiplier="1:1" id="NQs-5R-VZM"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="4X9-g5-xnq" secondAttribute="bottom" id="Hrb-uh-tMe"/>
+                                <constraint firstItem="4X9-g5-xnq" firstAttribute="top" secondItem="hx5-SS-IhD" secondAttribute="top" id="KFU-YY-Svt"/>
+                                <constraint firstItem="4X9-g5-xnq" firstAttribute="width" secondItem="hx5-SS-IhD" secondAttribute="width" multiplier="0.45" id="mbk-Bf-bYB"/>
+                                <constraint firstItem="4X9-g5-xnq" firstAttribute="centerX" secondItem="hx5-SS-IhD" secondAttribute="centerX" id="oOU-Hl-DTQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTD-08-Ck6">
+                            <rect key="frame" x="0.0" y="176.66666666666666" width="393" height="127.99999999999997"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKj-Wu-id5">
+                                    <rect key="frame" x="24" y="8" width="345" height="112"/>
+                                    <string key="text">My name is Nun. I'm mobile developer. I like to prgraming very much.I need to improve quality of my product everytime. this is first my demo for mvvm + coodinate pattern.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="sKj-Wu-id5" firstAttribute="leading" secondItem="CTD-08-Ck6" secondAttribute="leading" constant="24" id="L5P-m2-kIM"/>
+                                <constraint firstItem="sKj-Wu-id5" firstAttribute="top" secondItem="CTD-08-Ck6" secondAttribute="top" constant="8" id="Qxh-Sd-KgI"/>
+                                <constraint firstAttribute="bottom" secondItem="sKj-Wu-id5" secondAttribute="bottom" constant="8" id="ZXH-Ux-WSe"/>
+                                <constraint firstAttribute="trailing" secondItem="sKj-Wu-id5" secondAttribute="trailing" constant="24" id="wYT-Lv-DzD"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kll-zp-nQz">
+                            <rect key="frame" x="0.0" y="304.66666666666674" width="393" height="128"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contact: apinun.wong@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhZ-c4-bML">
+                                    <rect key="frame" x="24" y="8" width="345" height="112"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="XhZ-c4-bML" secondAttribute="bottom" constant="8" id="57i-7C-EnP"/>
+                                <constraint firstItem="XhZ-c4-bML" firstAttribute="leading" secondItem="Kll-zp-nQz" secondAttribute="leading" constant="24" id="b1s-eZ-m8A"/>
+                                <constraint firstAttribute="trailing" secondItem="XhZ-c4-bML" secondAttribute="trailing" constant="24" id="nlb-aT-sbC"/>
+                                <constraint firstItem="XhZ-c4-bML" firstAttribute="top" secondItem="Kll-zp-nQz" secondAttribute="top" constant="8" id="za4-pv-Mua"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TO4-yF-fRx" secondAttribute="trailing" id="Cr9-Qg-uuM"/>
+                <constraint firstItem="TO4-yF-fRx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GgH-C6-N2R"/>
+                <constraint firstItem="TO4-yF-fRx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="q49-Me-SiG"/>
+                <constraint firstItem="TO4-yF-fRx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ylv-QQ-E12"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_logo" width="360" height="360"/>
+    </resources>
+</document>

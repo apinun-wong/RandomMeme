@@ -1,6 +1,0 @@
-framework module Pods_RandomMemeWithTextTests {
-  umbrella header "Pods-RandomMemeWithTextTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
