@@ -44,16 +44,19 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     }
     
     private func setUpPullDownButton() {
-        let fontsMenu = UIMenu(title: "Selected Fonts", identifier: .edit, options: .singleSelection, children: [
-            UIAction(title: "Nunito", state: .on, handler: { [weak self] _ in
-                guard let self else { return }
-                self.viewModel.input.selectedFamilyFont(familyFont: .nunito)
-            }),
-            UIAction(title: "RobotoCondensed", handler: { [weak self] _ in
-                guard let self else { return }
-                self.viewModel.input.selectedFamilyFont(familyFont: .robotoCondensed)
-            })
-        ])
+        let nunitoAction = UIAction(title: "Nunito", state: .on, handler: { [weak self] _ in
+            guard let self else { return }
+            self.viewModel.input.selectedFamilyFont(familyFont: .nunito)
+        })
+        let robotoAction = UIAction(title: "RobotoCondensed", handler: { [weak self] _ in
+            guard let self else { return }
+            self.viewModel.input.selectedFamilyFont(familyFont: .robotoCondensed)
+        })
+        let fontsMenu = UIMenu(title: "Selected Fonts",
+                               image: .init(systemName: "arrowtriangle.down.circle")!,
+                               identifier: .edit,
+                               options: .singleSelection,
+                               children: [nunitoAction, robotoAction])
         pullDownButton.menu = fontsMenu
     }
 }
