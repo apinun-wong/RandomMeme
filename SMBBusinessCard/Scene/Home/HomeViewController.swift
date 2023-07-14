@@ -10,25 +10,50 @@ import UIKit
 final class HomeViewController: BaseViewController<HomeViewModel> {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
-    @IBOutlet weak var selectedButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var pullDownButton: UIButton!
     @IBOutlet weak var telLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "SMB ID CARD"
-        self.logoImageView.setViewShadow()
+        setUpUI()
+        bindingOutput()
+        viewModel.input.viewDidLoad?()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.input.viewWillAppear?()
+    private func setUpUI() {
+        title = "SMB ID CARD"
+        logoImageView.setViewShadow()
+        setUpPullDownButton()
     }
-    @IBAction func didSelect(_ sender: Any) {
-        var aaa = [Int] = []
-        var bbb: [Int: Int] = [:]
-        bbb.removeValue(forKey: <#T##Int#>)
+    
+    private func bindingOutput() {
+        viewModel.output.changeFont = { familyFont in
+            self.setUpFont(familyFont: familyFont)
+        }
+    }
+    
+    func setUpFont(familyFont: FamilyFont) {
+        nameLabel.font = .customFont(family: familyFont, style: .mediumBold)
+        jobLabel.font = .customFont(family: familyFont, style: .medium)
+        emailLabel.font = .customFont(family: familyFont, style: .smallLight)
+        addressLabel.font = .customFont(family: familyFont, style: .smallLight)
+        telLabel.font = .customFont(family: familyFont, style: .smallLight)
+    }
+    
+    private func setUpPullDownButton() {
+        let fontsMenu = UIMenu(title: "Selected Fonts", identifier: .edit, options: .singleSelection, children: [
+            UIAction(title: "Nunito", state: .on, handler: { [weak self] _ in
+                guard let self else { return }
+                self.viewModel.input.selectedFamilyFont(familyFont: .nunito)
+            }),
+            UIAction(title: "RobotoCondensed", handler: { [weak self] _ in
+                guard let self else { return }
+                self.viewModel.input.selectedFamilyFont(familyFont: .robotoCondensed)
+            })
+        ])
+        pullDownButton.menu = fontsMenu
     }
 }

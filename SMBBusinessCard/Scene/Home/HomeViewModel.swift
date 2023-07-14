@@ -7,8 +7,12 @@
 
 import Foundation
 
-public protocol HomeInput: AnyObject, BaseViewModelInputs {}
-public protocol HomeOutputs: AnyObject, BaseViewModelOutputs {}
+public protocol HomeInput: AnyObject, BaseViewModelInputs {
+    func selectedFamilyFont(familyFont: FamilyFont)
+}
+public protocol HomeOutputs: AnyObject, BaseViewModelOutputs {
+    var changeFont: ((_ familyFont: FamilyFont) -> Void)? { get set }
+}
 
 public protocol HomeViewModel: HomeInput, HomeOutputs {
     var input: HomeInput { get }
@@ -20,6 +24,8 @@ final class HomeViewModelImpl: BaseViewModel, HomeViewModel {
     var output: HomeOutputs { return self }
     
     var homeCoordinator: HomeCoordinator
+    var changeFont: ((_ familyFont: FamilyFont) -> Void)?
+    var familyFont: FamilyFont = .nunito
     
     init(homeCoordinator: HomeCoordinator) {
         self.homeCoordinator = homeCoordinator
@@ -29,7 +35,12 @@ final class HomeViewModelImpl: BaseViewModel, HomeViewModel {
 
 // Input
 extension HomeViewModelImpl {
+    func selectedFamilyFont(familyFont: FamilyFont) {
+        changeFont?(familyFont)
+    }
+    
     func viewDidLoad() {
+        changeFont?(familyFont)
     }
     
     func viewWillAppear() {
